@@ -1,6 +1,4 @@
-# NUWE_VuelyTONG_DataScienceProject
-![my vion image](Vio.png)
-
+![my image](Vio.png)
 
 
 # Can we predict the most popular destination for our next season!?!
@@ -10,12 +8,12 @@ This repository contains the files necessary to participate in the **Vueling tec
 It contains:
 - ***Exploration_Data_Analysis.ipynb***: Exploratory Data Analysis (EDA) in a Jupyter notebook.
 - ***Model_Evaluation_SLAClassification.ipynb***: Another Jupyter notebook with the pre-processing of the dat set, selection of best classification model, hyper-parameter tunning, and evaluation of the selected model results with the best parameters.
-- ***Model_Prediction_SLAClassification.ipynb***: Finally, another Jupyter notebook, with where we take our best model and predict the target. 
+- ***Model_Prediction_Pipeline_SLAClassification.ipynb***: Finally, another Jupyter notebook, with where we take our best model and predict the target using a pipeline. 
 - ***requirements.txt***: text file with the requirements needed to reproduce the models.
 
 About the results: 
 - The best model for our case was: **Random Forest Classifier**
-- The best score of the model has been: **0.77**
+- The best score of the model has been: **0.73**
  
 
 
@@ -55,24 +53,25 @@ Our TARGET is **Destination_Country**
 
 ***1. Exploratory data analysis (EDA) - Jupyter Notebook***
 
-Here we present the dataset. 
+In this notebook we will present the Exploratory data analysis
 
+- We do a first assesment of the data set and process as nedded
+    
+- We summarize the interest data statisctically and visualy
 
 1.1. Univariate Analysis:
 
-- Start by exploring each variable one by one and generating summary statistics such as count, mean, median, standard deviation, etc.
-- Create histograms to visualize the distribution of each numerical variable.
-- Create bar plots to visualize the frequency of each category in categorical variables such as "Origin Country", "Origin Continent", "Destination Country", and "Destination Continent".
+- We start by exploring each variable getting information and generating summary statistics 
+- We create boxplots and histograms to visualize the distribution of each numerical variable.
+- Create bar plots to visualize the frequency of each category in categorical variables.
+    
+1.2. and 1.3 Bivariate and Multivariate Analysis
 
-1.2. Bivariate Analysis:
-
-- Compute pairwise correlations between the numerical variables to identify any relationships between them.
+- We create a heatmap to visualize the correlations between all the variables.
+- We creat pairwise correlation between the numerical variables to identify any relationships between them.
 - Create scatter plots to visualize the relationship between each pair of numerical variables.
 - Create bar plots to visualize the relationship between each pair of categorical variables.
-
-1.3. Multivariate Analysis:
-- Create a heatmap to visualize the correlations between all the variables.
-
+- We finally plotted in heatmaps the relationship between Origin and Destination Countries
 
 1.4. Time Series Analysis:
 - Create line plots to visualize the trends in "Total flights", "Total seats", and "Total ASKs" over time, aggregated by year and/or month.
@@ -83,6 +82,20 @@ Here we present the dataset.
 - Create a choropleth map to visualize the distribution of flights based on "Origin Country" and "Destination Country".
 
 
+***2. Model_Evaluation_SLAClassification Jupyter Notebook***
 
-***2. Model prediction Jupyter Notebook***
+- Pre-processing of the data set
+- Process as determined in the exploratory data analysis
+- Pre-process the dataset
+- Creat processor and pipeline objects with several models to evaluate. We get Random Forest Classifier as the best model
+- Creat a grid of Hyper-parameters to search for the best with Randomized grisd search.
+- Finally, obtain the best model for our train data
 
+
+
+***3. Model_Prediction_SLAClassification Jupyter Notebook***
+
+- Process the data
+- Creat processor and pipeline objects with the best model
+- Run the model with the best parameters and obtein the Target
+- Checking the results we obtained a **0.73** for the **f1_macro** score
